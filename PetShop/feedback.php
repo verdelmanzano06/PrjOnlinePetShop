@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+	require_once('dbinfo.inc.php');
+
+echo <<<EOD
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,20 +43,23 @@
 			</div>
 		</div>
 		<div id="content">
-			<form name="input" action="html_form_action.jsp" method="get">
-			  <form method='post'>
-			  Name: <input type='text' name='name' id='name' /><br />
+			<form action="feedback.php" method="post" style="margin: 2%">
+		
+			  <p>Name: <input type="text" name="fb_name"/></p>
 
-			  Email: <input type='text' name='email' id='email' /><br />
+			  <p>Email: <input type="email" name="fb_email"/></p>
 
-			  Comment:<br />
-			  <textarea name='comment' id='comment' style="margin: 0px; width: 781px; height: 167px;" /></textarea><br />
+			  <p>Comment:</p>
+			  <p><textarea name="comment" style="margin: 0px; width: 781px; height: 167px;" /></textarea></p>
 
-			  <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>'  />
 
 			  <input type='submit' value='Submit' />
 			</form>
+
 		</div>
+EOD;
+
+echo <<<EOD
 		<div id="ads">
 			<img class="img-ads" src="media/ads.gif">
 		</div>
@@ -92,3 +100,5 @@
 
 </body>
 </html>
+EOD;
+?>

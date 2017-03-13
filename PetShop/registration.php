@@ -1,3 +1,6 @@
+<?php
+	require_once('dbinfo.inc.php');
+echo <<<EOD
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,29 +42,49 @@
 		<div id="content">
 			<div class="register-box">
 				<h2>Sign up New Account</h2>
-				<form method="post">
+				<form action="registration.php" method="post">
 					<label>Username: </label><br/>
-						<input type="text" name="username"/><br/>
+						<input type="text" name="cust_user"/><br/>
 					<label>Password: </label><br/>
-						<input type="password" name="password"/><br/>
+						<input type="password" name="cust_pass"/><br/>
 					<label>Confirm password: </label><br/>
 						<input type="password" name="cpassword"/><br/>
 					<label>E-mail address: </label><br/>
-						<input type="email" name="email"/><br/>
+						<input type="email" name="cust_email"/><br/>
 					<label>First name: </label><br/>
-						<input type="text" name="fname"/><br/>
+						<input type="text" name="cust_fname"/><br/>
 					<label>Last: </label><br/>
-						<input type="text" name="lname"/><br/>
+						<input type="text" name="cust_lname"/><br/>
 					<label>Gender: </label><br/>
-						<select>
-							<option></option selected>
-							<option name="male" >Male</option>
-							<option name="female">Female</option>
+						<select name="cust_gender">
+							<option value="None"></option selected>
+							<option value="Male" >Male</option>
+							<option value="Female">Female</option>
 						</select><br/>
 					<input type="checkbox" name="agreement" value="accept"/> I have read and understand this agreement<br/><br/>
-						<input type="submit" name="submit" value="Submit"/>
+						<input type="submit" name="register" value="Register"/>
 				</form>
-				
+EOD;
+	if(!isset($_POST['register'])) {
+			//No codes to run
+		} else {
+			$c = oci_pconnect(ORA_CON_UN,ORA_CON_PW,ORA_CON_DB);
+			$s = oci_parse($c, 'INSERT INTO customer (cust_user, cust_pass, cust_email, cust_lname, cust_fname, cust_gender) VALUES (:cust_user, :cust_pass, :cust_email, :cust_lname, :cust_fname, :cust_gender)');
+
+			oci_bind_by_name($s, ":cust_user", $_POST['cust_user']);
+			oci_bind_by_name($s, ":cust_pass", $_POST['cust_pass']);
+			oci_bind_by_name($s, ":cust_email", $_POST['cust_email']);
+			oci_bind_by_name($s, ":cust_lname", $_POST['cust_lname']);
+			oci_bind_by_name($s, ":cust_fname", $_POST['cust_fname']);
+			oci_bind_by_name($s, ":cust_gender", $_POST['cust_gender']);
+
+			oci_execute($s);
+
+			echo "<script>alert('Registration Success!')</script>";
+
+		} 
+
+	echo <<<EOD
 			</div>
 			
 		</div>
@@ -105,3 +128,5 @@
 
 </body>
 </html>
+EOD;
+?>

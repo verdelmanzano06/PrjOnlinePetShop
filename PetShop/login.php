@@ -69,8 +69,11 @@ EOD;
 			}
 			 else {
 			 	echo "<p>Login failed. Invalid username/password</p>";
+			 	oci_close($c);
 			 } 
+
 			}
+
 echo <<<EOD
 		</div>
 		<div id="ads">
