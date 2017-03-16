@@ -1,0 +1,17 @@
+.navbar-left {
+	line-height: 50px;
+	padding-right: 5px;
+}
+.navbar-left img {
+	width: 230px;
+}
+.page-header, .panel-body {
+	margin-top: 0;
+}
+.panel p, h4, .featuredImg{
+	margin: 20px;
+	
+}
+
+
+
