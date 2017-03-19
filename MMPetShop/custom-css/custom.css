@@ -1,0 +1,29 @@
+.navbar-left {
+	line-height: 50px;
+	padding-right: 5px;
+}
+.navbar-left img {
+	width: 230px;
+}
+.page-header, .panel-body {
+	margin-top: 0;
+}
+.panel p, h4, .featuredImg {
+	margin: 20px;
+}
+.lewis-header {
+	background: green;
+}
+.lewis-header a {
+	color: white !important;
+}
+.lewis-header a:hover {
+	color: #DADFE1 !important;
+}
+.dropdown-menu a {
+	color: black !important;
+}
+.dropdown-menu a:hover {
+	background-color: #DADFE1 !important;
+	color: black !important;
+}
