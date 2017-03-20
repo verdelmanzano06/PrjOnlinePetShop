@@ -90,44 +90,44 @@
 					<div class="form-group col-lg-12">
 						<label for="user-name" class="col-lg-3 control-label">Username:</label>
 						<div class="col-lg-8">
-							<input type="text" class="form-control" id="user-name" placeholder="Enter desired username" name="cust_user">
+							<input type="text" class="form-control" id="user-name" placeholder="Enter desired username" name="cust_user" required>
 						</div>
 					</div>
 					<div class="form-group col-lg-12">
 						<label for="user-password" class="col-lg-3 control-label">Password:</label>
 						<div class="col-lg-8">
-							<input type="password" class="form-control" id="user-password" placeholder="Enter desired password" name="cust_pass">
+							<input type="password" class="form-control" id="user-password" placeholder="Enter desired password" name="cust_pass" required>
 						</div>
 					</div>
 					<div class="form-group col-lg-12">
 						<label for="conf-password" class="col-lg-3 control-label">Password Again:</label>
 						<div class="col-lg-8">
-							<input type="password" class="form-control" id="conf-password" placeholder="Enter password again" name="cust_pass1">
+							<input type="password" class="form-control" id="conf-password" placeholder="Enter password again" name="cust_pass1" required>
 						</div>
 					</div><hr/>
 					<div class="form-group col-lg-12">
 						<label for="user-email" class="col-lg-3 control-label">E-mail Address:</label>
 						<div class="col-lg-8">
-							<input type="email" class="form-control" id="user-email" placeholder="you@example.com" name="cust_email">
+							<input type="email" class="form-control" id="user-email" placeholder="you@example.com" name="cust_email" required>
 						</div>
 					</div><hr/>
 					<div class="form-group col-lg-12">
 						<label for="user-fname" class="col-lg-3 control-label">First Name:</label>
 						<div class="col-lg-8">
-							<input type="text" class="form-control" id="user-fname" placeholder="Enter First Name" name="cust_fname">
+							<input type="text" class="form-control" id="user-fname" placeholder="Enter First Name" name="cust_fname" required>
 						</div>
 					</div>
 					<div class="form-group col-lg-12">
 						<label for="user-lname" class="col-lg-3 control-label">Last Name:</label>
 						<div class="col-lg-8">
-							<input type="text" class="form-control" id="user-lname" placeholder="Enter Last Name" name="cust_lname">
+							<input type="text" class="form-control" id="user-lname" placeholder="Enter Last Name" name="cust_lname" required>
 						</div>
 					</div>
 					<div class="form-group col-lg-12">
 						<label for="user-gender" class="col-lg-3 control-label">Gender:</label>
 						<div class="col-lg-8">
-							<select name="cust_gender" id="user-gender" class="form-control">
-								<option value="None">(Please Select Gender)</option selected disable>
+							<select name="cust_gender" id="user-gender" class="form-control" required>
+								<option value="">(Please Select Gender)</option>
 								<option value="Male" >Male</option>
 								<option value="Female">Female</option>
 							</select>
