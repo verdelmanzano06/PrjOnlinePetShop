@@ -88,11 +88,11 @@
 				<form role="form" method="post" action="login.php">
 					<div class="input-group input-group-lg">
 			 			 <span class="input-group-addon" id="sizing-addon1">@</span>
-			  			<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" name="cust_user">
+			  			<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" name="cust_user" required>
 					</div><br/>			
 					<div class="input-group input-group-lg">
 			 			 <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-lock"></span></span>
-			  			<input type="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon1" name="cust_pass">
+			  			<input type="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon1" name="cust_pass" required>
 					</div><br/>		
 					<div class="input-group input-group-lg">
 			  			<button type="submit" class="form-control btn btn-success" name="submit">Login</button>
