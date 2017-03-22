@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,13 +52,19 @@
 
 					<li><a href="#">Cart</a></li>
 					<!--drop down menu -->
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Account Page</a></li>
-							<li><a href="logout.php">Logout</a></li>
-						</ul>
-					</li>
+					<?php 
+						if (!isset($_SESSION['cust_user'])) {
+	    					echo "<li><a href='checkout.php''>Login/Register</a></li>";
+						 } else {
+						 	echo "<li class='dropdown'>
+							<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>My Account <span class='caret'></span></a>
+							<ul class='dropdown-menu'>
+							<li><a href='myaccount.php'>Account Page</a></li>
+							<li><a href='logout.php'>Logout</a></li>
+							</ul>
+							</li>";
+						 }
+					 ?>
 				</ul>
 
 				<!--right align -->

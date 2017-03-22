@@ -5,5 +5,5 @@
 
 	echo "<script>alert('You have been logged out!')</script>";
 	
-	echo "<script>window.open('login.php','_self')</script>";
+	echo "<script>window.open('index.php','_self')</script>";
 ?>

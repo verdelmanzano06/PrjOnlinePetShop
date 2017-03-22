@@ -1,8 +1,5 @@
 <?php
 	session_start();
-	if(isset($_SESSION['cust_user'])) {
-	    header("Location: index.php"); 
-	    }
  ?>
 
 <!DOCTYPE html>
@@ -57,13 +54,20 @@
 					<li><a href="#">Cart</a></li>
 
 					<!--drop down menu -->
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Account Page</a></li>
-							<li><a href="logout.php">Logout</a></li>
-						</ul>
-					</li>
+					<?php 
+						if (!isset($_SESSION['cust_user'])) {
+	    					//No codes
+						 } else {
+						 	echo "<li class='dropdown'>
+							<a href='#'' class='dropdown-toggle' data-toggle='dropdown'>My Account <span class='caret'></span></a>
+							<ul class='dropdown-menu'>
+							<li><a href='myaccount.php'>Account Page</a></li>
+							<li><a href='logout.php'>Logout</a></li>
+							</ul>
+							</li>";
+						 }
+					 ?>
+					 
 				</ul>
 
 				<!--right align -->
@@ -127,7 +131,17 @@
 			<div class="jumbotron" style="background-color: #DADFE1;">
 				<h1><small>Welcome to M&M Petshop</small></h1>
 				<p>M&M Petshop is online selling store of different animals like Reptiles, Dogs and Cats</p>
-				<a class="btn btn-success" href="shop.php">Get a pet now!</a> <strong>or</strong> <a class="btn btn-info" href="login.php">Log in</a>
+				<a class="btn btn-success" href="shop.php">Get a pet now!</a> <strong>or</strong> 
+
+				<?php  
+					if(isset($_SESSION['cust_user'])) {
+						echo "<a class='btn btn-info' href='myaccount.php'>Edit your account information</a>";
+					} else {
+						echo "<a class='btn btn-info' href='checkout.php'>Log in</a>";
+					}
+				?>
+				
+
 			</div>
 		</div>
 		<div class="col-lg-5">
