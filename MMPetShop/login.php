@@ -1,5 +1,5 @@
 <?php 
-	require("dbinfo.inc.php");
+	require("includes/dbinfo.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +21,11 @@
 	    <script src="bootstrap-3.3.7-dist/js/jquery.min.js"></script>
 	    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
+
 <body style="background-color: #ECECEC;">
-			<nav class="navbar navbar-inverse lewis-header">
+	<nav class="navbar navbar-inverse lewis-header">
 		<div class="container">
+
 			<!--logo -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
@@ -33,6 +35,7 @@
 				</button>
 				<a href="index.php" class="navbar-left"><img src="media/header.png"></a>
 			</div>
+
 			<!--menu-items -->
 			<div class="collapse navbar-collapse" id="mainNavBar">
 				<ul class="nav navbar-nav">
@@ -50,7 +53,6 @@
 					</li>
 
 					<li><a href="#">Shop</a></li>
-
 					<li><a href="#">Cart</a></li>
 
 					<!--drop down menu -->
@@ -79,8 +81,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2">
-				<?php include("sidebar.php"); ?>
+				<?php /* The Category Sidebar */ include("includes/sidebar.php"); ?>
 			</div>
+
 <!--START OF LOGIN CODE-->
 	<div class="col-md-8">
 		<div class="panel panel-default">
@@ -93,6 +96,9 @@
 				<div class="panel-header">
 					<h2><small>Login to M&M PetShop</small></h2>
 				</div><br/>
+				<div class="alert alert-info">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>Don't have an account? Register <a href="registration.php">here</a>
+				</div>
 				<form role="form" method="post" action="login.php">
 					<div class="input-group input-group-lg">
 			 			 <span class="input-group-addon" id="sizing-addon1">@</span>
@@ -109,86 +115,41 @@
 			</div>
 		</div>
 
-<?php 
-	if(!isset($_POST['cust_user']) || !isset($_POST['cust_pass'])) {
-			//No codes to run
-		} else {
-			$c = oci_pconnect(ORA_CON_UN,ORA_CON_PW,ORA_CON_DB);
-			$s = oci_parse($c, 'SELECT cust_user FROM customer WHERE cust_user = :cust_user_bv AND cust_pass = :cust_pass_bv');
-			oci_bind_by_name($s, ":cust_user_bv", $_POST['cust_user']);
-			oci_bind_by_name($s, ":cust_pass_bv", $_POST['cust_pass']);
-			oci_execute($s);
-			$r = oci_fetch_array($s, OCI_ASSOC);
+		<?php 
+			if(!isset($_POST['cust_user']) || !isset($_POST['cust_pass'])) {
+					//No codes to run
+				} else {
+					$c = oci_pconnect(ORA_CON_UN,ORA_CON_PW,ORA_CON_DB);
+					$s = oci_parse($c, 'SELECT cust_user FROM customer WHERE cust_user = :cust_user_bv AND cust_pass = :cust_pass_bv');
+					oci_bind_by_name($s, ":cust_user_bv", $_POST['cust_user']);
+					oci_bind_by_name($s, ":cust_pass_bv", $_POST['cust_pass']);
+					oci_execute($s);
+					$r = oci_fetch_array($s, OCI_ASSOC);
 
-			if ($r) {
-				$_SESSION['cust_user'] = $_POST['cust_user'];
-					echo "<script>alert('You have been logged in!')</script>";
-					echo "<script>window.open('index.php','_self')</script>";
-			}
-			 else {
-			 	echo "<script>alert('Invalid Username or Password!')</script>";
-			 	oci_close($c);
+					if ($r) {
+						$_SESSION['cust_user'] = $_POST['cust_user'];
+							echo "<script>alert('You have been logged in!')</script>";
+							echo "<script>window.open('index.php','_self')</script>";
+					}
+					 else {
+					 	echo "<script>alert('Invalid Username or Password!')</script>";
+					 	oci_close($c);
 
-			 } 
+					 } 
 
-		}
-?>
-		</div>
+				}
+		?>
+</div>
 <!--END OF LOGIN CODE-->
 
-		<div class="col-md-2">
-			<img src="media/ads.gif"/>
-		</div>
-	</div>
-	
 
-	</div>
+		<?php /* Ads Section */ include("includes/ads.php"); ?>
+		
+	</div>	
+</div>
+		<?php /* Page Footer */ include("includes/footer.php"); ?>
 
-	<div class="navbar navbar-default navbar-static-bottom">
-		<div class="container">
-			<p class="navbar-text pull-left">&copy 2017, M&M Online PetShop</p>
-			<a class="navbar-btn btn btn-primary pull-right">Follow us on Facebook</a>
-		</div>
-	</div>
-
-	<div class="modal fade" id="contact" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form class="form-horizontal">
-				<div class="modal-header">
-					<h4>Contact our Store</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="contact-name" class="col-lg-2 control-label">Name:</label>
-						<div class="col-lg-10">
-							<input type="text" class="form-control" id="contact-name" placeholder="Full Name">
-						</div>
-
-					</div>
-					<div class="form-group">
-						<label for="contact-email" class="col-lg-2 control-label">Email:</label>
-						<div class="col-lg-10">
-							<input type="email" class="form-control" id="contact-email" placeholder="you@example.com">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="contact-msg" class="col-lg-2 control-label">Message:</label>
-						<div class="col-lg-10">
-							<textarea class="form-control" row="8" placeholder="Your Message" id="contact-msg"></textarea>
-						</div>
-					</div>
-
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">Send</button>
-					<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-				</div>
-			</form>
-			</div>
-		</div>
-	</div>
-
+		<?php /* Modal contact Form */ include("includes/contact_form.php"); ?>
 
 </body>
 </html>

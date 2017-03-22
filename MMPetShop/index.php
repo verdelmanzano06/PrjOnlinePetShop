@@ -127,9 +127,7 @@
 			<div class="jumbotron" style="background-color: #DADFE1;">
 				<h1><small>Welcome to M&M Petshop</small></h1>
 				<p>M&M Petshop is online selling store of different animals like Reptiles, Dogs and Cats</p>
-				<a href="login.php">Login</a> or
-				<a href="registration.php">Register</a><hr/>
-				<a class="btn btn-success" href="shop.php">Get a pet now!</a>
+				<a class="btn btn-success" href="shop.php">Get a pet now!</a> <strong>or</strong> <a class="btn btn-info" href="login.php">Log in</a>
 			</div>
 		</div>
 		<div class="col-lg-5">
@@ -200,51 +198,9 @@
 
 	
 
-	<div class="navbar navbar-default navbar-static-bottom">
-		<div class="container">
-			<p class="navbar-text pull-left">&copy 2017, M&M Online PetShop</p>
-			<a class="navbar-btn btn btn-primary pull-right">Follow us on Facebook</a>
-		</div>
-	</div>
+	<?php /* Page Footer */ include("includes/footer.php"); ?>
 
-	<div class="modal fade" id="contact" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-			<form class="form-horizontal">
-				<div class="modal-header">
-					<h4>Contact our Store</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="contact-name" class="col-lg-2 control-label">Name:</label>
-						<div class="col-lg-10">
-							<input type="text" class="form-control" id="contact-name" placeholder="Full Name">
-						</div>
-
-					</div>
-					<div class="form-group">
-						<label for="contact-email" class="col-lg-2 control-label">Email:</label>
-						<div class="col-lg-10">
-							<input type="email" class="form-control" id="contact-email" placeholder="you@example.com">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="contact-msg" class="col-lg-2 control-label">Message:</label>
-						<div class="col-lg-10">
-							<textarea class="form-control" row="8" placeholder="Your Message" id="contact-msg"></textarea>
-						</div>
-					</div>
-
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">Send</button>
-					<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-				</div>
-			</form>
-			</div>
-		</div>
-	</div>
-
+	<?php /* Modal contact Form */ include("includes/contact_form.php"); ?>
 
 </body>
 </html>

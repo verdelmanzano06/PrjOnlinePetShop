@@ -1,5 +1,5 @@
 <?php 
-	require("dbinfo.inc.php");
+	require("includes/dbinfo.inc.php");
  ?>
 
 <!DOCTYPE html>
@@ -21,9 +21,11 @@
 	    <script src="bootstrap-3.3.7-dist/js/jquery.min.js"></script>
 	    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
+
 <body style="background-color: #ECECEC;">
-			<nav class="navbar navbar-inverse lewis-header">
+	<nav class="navbar navbar-inverse lewis-header">
 		<div class="container">
+
 			<!--logo -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
@@ -33,6 +35,7 @@
 				</button>
 				<a href="index.php" class="navbar-left"><img src="media/header.png"></a>
 			</div>
+
 			<!--menu-items -->
 			<div class="collapse navbar-collapse" id="mainNavBar">
 				<ul class="nav navbar-nav">
@@ -50,8 +53,8 @@
 					</li>
 
 					<li><a href="#">Shop</a></li>
-
 					<li><a href="#">Cart</a></li>
+
 					<!--drop down menu -->
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <span class="caret"></span></a>
@@ -78,22 +81,25 @@
 	<div class="container">
 		<div class="row">
 <!--START OF REGISTRATION CODE-->
+			<div class="col-md-2">
+				<?php /* The Category Sidebar */ include("includes/sidebar.php"); ?>
+			</div>
 
-			<div class="col-lg-10">
+			<div class="col-md-8">
 				<ol class="breadcrumb">
-							<li><a href="index.php">Home</a></li>
-							<li class="disabled">Customer Section</li>
-							<li class="active">Registration</li>						
-						</ol>
-				<div class="panel panel-default" style="background-color: #DADFE1;">
+					<li><a href="index.php">Home</a></li>
+					<li class="disabled">Customer Section</li>
+					<li class="active">Registration</li>						
+				</ol>
+					<div class="panel panel-default" style="background-color: #DADFE1;">
 					
 					<div class="panel-body">
 					
-
 						<div class="page-header">
-								<h2><small>Customer Registration</small></h2>
+							<h2><small>Customer Registration</small></h2>
 						</div>
 					</div>
+					
 					<form role="form" class="form-horizontal" method="post" action="registration.php">
 					<div class="form-group col-lg-12">
 						<label for="user-name" class="col-lg-3 control-label">Username:</label>
@@ -142,7 +148,7 @@
 						</div>
 					</div>
 					<div class="form-group text-right">
-						<div class="col-lg-10">
+						<div class="col-md-10">
 							<button type="submit" class="btn btn-success" name="register">Register</button>
 							<button type="reset" class="btn btn-info">Clear</button>
 						</div>
@@ -180,58 +186,15 @@
 		?>
 <!--END OF REGISTRATION CODE-->
 
-			<div class="col-lg-2">
-				<img src="media/ads.gif"/>
-			</div>
+			<?php /* Ads Section */ include("includes/ads.php"); ?>
+
 		</div>
 	</div>
 
 
-	<div class="navbar navbar-default navbar-static-bottom">
-		<div class="container">
-			<p class="navbar-text pull-left">&copy 2017, M&M Online PetShop</p>
-			<a class="navbar-btn btn btn-primary pull-right">Follow us on Facebook</a>
-		</div>
-	</div>
+		<?php /* Page Footer */ include("includes/footer.php"); ?>
 
-	<div class="modal fade" id="contact" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form class="form-horizontal">
-				<div class="modal-header">
-					<h4>Contact our Store</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="contact-name" class="col-lg-2 control-label">Name:</label>
-						<div class="col-lg-10">
-							<input type="text" class="form-control" id="contact-name" placeholder="Full Name">
-						</div>
-
-					</div>
-					<div class="form-group">
-						<label for="contact-email" class="col-lg-2 control-label">Email:</label>
-						<div class="col-lg-10">
-							<input type="email" class="form-control" id="contact-email" placeholder="you@example.com">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="contact-msg" class="col-lg-2 control-label">Message:</label>
-						<div class="col-lg-10">
-							<textarea class="form-control" row="8" placeholder="Your Message" id="contact-msg"></textarea>
-						</div>
-					</div>
-
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">Send</button>
-					<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-				</div>
-			</form>
-			</div>
-		</div>
-	</div>
-
+		<?php /* Modal contact Form */ include("includes/contact_form.php"); ?>
 
 </body>
 </html>
