@@ -187,7 +187,7 @@
 	
 				oci_execute($s);
 					echo "<script>alert('Registration Success!')</script>";
-					echo "<script>window.open('login.php','_self')</script>";
+					echo "<script>window.open('checkout.php','_self')</script>";
 			} 
 		?>
 <!--END OF REGISTRATION CODE-->
